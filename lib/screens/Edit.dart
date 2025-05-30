@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sportapp/screens/soccerscreen.dart';
 
 class editscreen extends StatefulWidget {
   @override
@@ -222,7 +223,12 @@ class _EditScreenState extends State<editscreen> with SingleTickerProviderStateM
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (_) => SoccerScoreScreen()));
+
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.purple,
                     shape: RoundedRectangleBorder(
