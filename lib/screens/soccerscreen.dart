@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:sportapp/screens/Edit.dart';
+import 'package:sportapp/screens/info.dart';
+import 'package:sportapp/screens/series.dart';
 
 class SoccerScoreScreen extends StatelessWidget {
   const SoccerScoreScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final int _selectedIndex = 1;
     return Scaffold(
       backgroundColor:  Color(0xFF1A1A2E),
       body: SafeArea(
@@ -216,9 +220,10 @@ class SoccerScoreScreen extends StatelessWidget {
       ),
       // Bottom Navigation Bar
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey[900],
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white10,
+        currentIndex: _selectedIndex,
+        backgroundColor: Color(0xFF1A1A2E),
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.black,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -238,6 +243,19 @@ class SoccerScoreScreen extends StatelessWidget {
             label: 'Menu',
           ),
         ],
+        onTap: (index){
+          if (index == 0) {
+            Navigator.push(context, MaterialPageRoute(builder: (_) =>SoccerScoreScreen()));
+
+          }
+          else if (index == 1) {
+            Navigator.push(context, MaterialPageRoute(builder: (_) => MatchStatsScreen()));
+          } else if (index == 2) {
+            Navigator.push(context, MaterialPageRoute(builder: (_) => SeriesScreen()));
+          } else if (index == 3) {
+            Navigator.push(context, MaterialPageRoute(builder: (_) => editscreen()));
+          }
+        },
       ),
     );
   }

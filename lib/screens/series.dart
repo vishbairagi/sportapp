@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:sportapp/screens/Edit.dart';
+import 'package:sportapp/screens/info.dart';
+import 'package:sportapp/screens/soccerscreen.dart';
 
 class SeriesScreen extends StatelessWidget {
   const SeriesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final int _selectedIndex = 1;
     return Scaffold(
       backgroundColor: const Color(0xFF1A1A2E),
       body: SafeArea(
@@ -122,17 +126,16 @@ class SeriesScreen extends StatelessWidget {
           ],
         ),
       ),
+
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
         backgroundColor: Color(0xFF1A1A2E),
         selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.white10,
-        currentIndex: 1, // Highlight "Series" tab
-        onTap: (index) {
-
-        },
+        unselectedItemColor: Colors.black,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
+            backgroundColor:  Color(0xFF1A1A2E),
             label: 'Home',
           ),
           BottomNavigationBarItem(
@@ -148,7 +151,23 @@ class SeriesScreen extends StatelessWidget {
             label: 'Menu',
           ),
         ],
+        onTap: (index){
+          if (index == 0) {
+            Navigator.push(context, MaterialPageRoute(builder: (_) =>SoccerScoreScreen()));
+
+          }
+          else if (index == 1) {
+            Navigator.push(context, MaterialPageRoute(builder: (_) => MatchStatsScreen()));
+          } else if (index == 2) {
+            Navigator.push(context, MaterialPageRoute(builder: (_) => SeriesScreen()));
+          } else if (index == 3) {
+            Navigator.push(context, MaterialPageRoute(builder: (_) => editscreen()));
+          }
+        },
       ),
+
+
+
     );
   }
 

@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class MatchStatsScreen extends StatelessWidget {
+class MatchStatsScreen extends StatefulWidget {
   const MatchStatsScreen({Key? key}) : super(key: key);
 
+  @override
+  State<MatchStatsScreen> createState() => _MatchStatsScreenState();
+}
+
+class _MatchStatsScreenState extends State<MatchStatsScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
